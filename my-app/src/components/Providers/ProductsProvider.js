@@ -1,12 +1,13 @@
 import React, { createContext, useContext, useReducer, useState } from "react";
+import { productsData } from "../../db/products";
 // createContext
 const ProductsContext = createContext(0);
 const ProductsContextDisPatcher = createContext();
-const initialState = [
-  { id: 1, name: "React js Course", price: 123, quantity: 1 },
-  { id: 2, name: "node js Course", price: 180, quantity: 1 },
-  { id: 3, name: "Vue js Course", price: 190, quantity: 1 },
-];
+// const initialState = [
+//   { id: 1, name: "React js Course", price: 123, quantity: 1 },
+//   { id: 2, name: "node js Course", price: 180, quantity: 1 },
+//   { id: 3, name: "Vue js Course", price: 190, quantity: 1 },
+// ];
 
 const reducer = (state, action) => {
   // todo
@@ -35,7 +36,7 @@ const reducer = (state, action) => {
     case "edit": {
       const index = state.findIndex((p) => p.id === action.id);
       const selectedProduct = { ...state[index] };
-      selectedProduct.name = action.event.target.value;
+      selectedProduct.title = action.event.target.value;
 
       const productsCopy = [...state];
       productsCopy[index] = selectedProduct;
@@ -51,7 +52,7 @@ const reducer = (state, action) => {
 };
 // Component
 const ProductsProvider = ({ children }) => {
-  const [products, dispatch] = useReducer(reducer, initialState);
+  const [products, dispatch] = useReducer(reducer, productsData);
   return (
     // provider
     <ProductsContext.Provider value={products}>

@@ -2,8 +2,8 @@ import { BiTrash } from "react-icons/bi";
 
 const Product = ({ product, onDelete, onInCrement, onDeCrement, change }) => {
   return (
-    <div className="m-4 p-4 border-1 border-gray-400 rounded-lg w-58 sm:w-[60rem] flex  flex-col  sm:flex-row justify-around items-center bg-[#fff]">
-      <p>product name : {product.name} course</p>
+    <div className="m-4 p-4 border-1 border-gray-400 rounded-lg w-58 sm:w-[60rem] flex flex-col  sm:flex-row justify-around items-center bg-[#fff]">
+      <p>product name : {product.title} course</p>
       <p>
         product price :
         <span className="font-bold">{product.price * product.quantity}</span>$
@@ -12,7 +12,7 @@ const Product = ({ product, onDelete, onInCrement, onDeCrement, change }) => {
         className="text-purple-600 p-1  border border-purple-500 rounded-md"
         type="text"
         onChange={change}
-        value={product.name}
+        value={product.title}
       />
       <button
         onClick={onDeCrement}

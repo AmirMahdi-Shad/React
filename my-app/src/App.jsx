@@ -20,5 +20,5 @@ const App = () => {
 
 export default Wrapper(
   App,
-  "container h-[100vh] bg-[#fdc0df] min-w-full font-sans"
+  "container h-full bg-gray-300 min-w-full font-sans"
 );
