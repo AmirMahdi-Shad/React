@@ -2,7 +2,7 @@ const productsData = [
   {
     id: 1,
     quantity: 1,
-    availableSizes: ["s", "l", "xl", "xxl", "xxxl"],
+    availableSizes: ["s", "xl", "xxl", "xxxl"],
     title: "iPhone 9",
     description: "An apple mobile which is nothing like apple",
     price: 549,
@@ -21,7 +21,7 @@ const productsData = [
   {
     id: 2,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l", "xxxl"],
     title: "iPhone X",
     description:
       "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
@@ -40,7 +40,7 @@ const productsData = [
   {
     id: 3,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "xl", "xxl"],
     title: "Samsung Universe 9",
     description:
       "Samsung's new variant which goes beyond Galaxy to the Universe",
@@ -54,7 +54,7 @@ const productsData = [
   {
     id: 4,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: [ "l", "xl", "xxl", "xxxl"],
     title: "OPPOF19",
     description: "OPPO F19 is officially announced on April 2021.",
     price: 280,
@@ -73,7 +73,7 @@ const productsData = [
   {
     id: 5,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["xxl", "xxxl"],
     title: "Huawei P30",
     description:
       "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
@@ -91,7 +91,7 @@ const productsData = [
   {
     id: 6,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l", "xl", "xxl"],
     title: "MacBook Pro",
     description:
       "MacBook Pro 2021 with mini-LED display may launch between September, November",
@@ -110,7 +110,7 @@ const productsData = [
   {
     id: 7,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l", "xl",],
     title: "Samsung Galaxy Book",
     description:
       "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
@@ -129,7 +129,7 @@ const productsData = [
   {
     id: 8,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l", "xl", "xxl",],
     title: "Microsoft Surface Laptop 4",
     description:
       "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
@@ -149,7 +149,7 @@ const productsData = [
   {
     id: 9,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l", "xl", "xxl",],
     title: "Infinix INBOOK",
     description:
       "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
@@ -169,7 +169,7 @@ const productsData = [
   {
     id: 10,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l", "xl",],
     title: "HP Pavilion 15-DK1056WM",
     description:
       "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
@@ -188,7 +188,7 @@ const productsData = [
   {
     id: 11,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l",  "xxl", "xxxl"],
     title: "perfume Oil",
     description:
       "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
@@ -207,7 +207,7 @@ const productsData = [
   {
     id: 12,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["sm", "l", "xl", "xxxl"],
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
