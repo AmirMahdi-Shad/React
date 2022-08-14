@@ -2,7 +2,7 @@ const productsData = [
   {
     id: 1,
     quantity: 1,
-    availableSizes: ["sm", "l", "xl", "2xl", "3xl"],
+    availableSizes: ["s", "l", "xl", "xxl", "xxxl"],
     title: "iPhone 9",
     description: "An apple mobile which is nothing like apple",
     price: 549,

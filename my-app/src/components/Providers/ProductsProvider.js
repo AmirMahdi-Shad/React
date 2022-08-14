@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { productsData } from "../../db/products";
 // createContext
 const ProductsContext = createContext(0);
@@ -46,6 +46,9 @@ const reducer = (state, action) => {
       const updatedProduct = state.filter((p) => p.id !== action.id);
       return updatedProduct;
     }
+    case "filter":
+      // console.log(action.e.target.value);
+        return state;
     default:
       return state;
   }
