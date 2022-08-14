@@ -4,11 +4,6 @@ import Select from 'react-select';
 // createContext
 const ProductsContext = createContext(0);
 const ProductsContextDisPatcher = createContext();
-// const initialState = [
-//   { id: 1, name: "React js Course", price: 123, quantity: 1 },
-//   { id: 2, name: "node js Course", price: 180, quantity: 1 },
-//   { id: 3, name: "Vue js Course", price: 190, quantity: 1 },
-// ];
 
 const reducer = (state, action) => {
   // todo
@@ -77,7 +72,6 @@ export default ProductsProvider;
 export const useProducts = () => useContext(ProductsContext);
 export const useProductsActions = () => {
   return useContext(ProductsContextDisPatcher);
-  // const products = useContext(ProductsContext);
   // todo: using useReducer Hook instead of this
   // const removeProductHandler = (id) => {
   //   const updatedProduct = products.filter((p) => p.id !== id);
