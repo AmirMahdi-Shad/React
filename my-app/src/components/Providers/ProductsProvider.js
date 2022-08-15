@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { productsData } from "../../db/products";
-import Select from 'react-select';
+import _ from "lodash";
 // createContext
 const ProductsContext = createContext(0);
 const ProductsContextDisPatcher = createContext();
@@ -42,14 +42,29 @@ const reducer = (state, action) => {
       const updatedProduct = state.filter((p) => p.id !== action.id);
       return updatedProduct;
     }
-    case "filter":
- // console.log(action.e.target.value);
- if(action.e.target.value === "All"){
-   return productsData
- }else{
-  const updatedProducts = productsData.filter((p)=> p.availableSizes.indexOf(action.e.target.value)>=0)
-  return updatedProducts;
- }
+    case "filter": {
+      const value = action.selectedOption.value;
+      if (value === "All") {
+        return productsData;
+      } else {
+        const updatedProducts = productsData.filter(
+          (p) => p.availableSizes.indexOf(value) >= 0
+        );
+        return updatedProducts;
+      }
+    }
+    case "sort": {
+      const value = action.selectedOption.value;
+
+      const products = [...state];
+      if (value === "highest") {
+        return _.orderBy(products, ["price"], ["desc"]);
+      }
+      if (value === "lowest") {
+        return _.orderBy(products, ["price"], ["asc"]);
+      }
+      break;
+    }
     default:
       return state;
   }
@@ -72,47 +87,4 @@ export default ProductsProvider;
 export const useProducts = () => useContext(ProductsContext);
 export const useProductsActions = () => {
   return useContext(ProductsContextDisPatcher);
-  // todo: using useReducer Hook instead of this
-  // const removeProductHandler = (id) => {
-  //   const updatedProduct = products.filter((p) => p.id !== id);
-  //   setProducts(updatedProduct);
-  // };
-  // const inCrementHandler = (id) => {
-  //   const index = products.findIndex((p) => p.id === id);
-  //   const selectedProduct = { ...products[index] };
-  //   selectedProduct.quantity++;
-
-  //   const productsCopy = [...products];
-  //   productsCopy[index] = selectedProduct;
-  //   setProducts(productsCopy);
-  // };
-
-  // const deCrementHandler = (id) => {
-  //   const index = products.findIndex((p) => p.id === id);
-  //   const selectedProduct = { ...products[index] };
-  //   const productsCopy = [...products];
-  //   if (selectedProduct.quantity > 1) {
-  //     selectedProduct.quantity--;
-  //     productsCopy[index] = selectedProduct;
-  //     setProducts(productsCopy);
-  //   } else {
-  //     setProducts(products.filter((p) => p.id !== id));
-  //   }
-  // };
-  // const changeHandler = (e, id) => {
-  //   const index = products.findIndex((p) => p.id === id);
-  //   const selectedProduct = { ...products[index] };
-  //   selectedProduct.name = e.target.value;
-
-  //   const productsCopy = [...products];
-  //   productsCopy[index] = selectedProduct;
-  //   setProducts(productsCopy);
-  // };
-
-  //   return {
-  //     removeProductHandler,
-  //     inCrementHandler,
-  //     deCrementHandler,
-  //     changeHandler,
-  //   };
 };

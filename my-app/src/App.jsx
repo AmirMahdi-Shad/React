@@ -12,16 +12,13 @@ const App = () => {
       <ProductsProvider>
         <NavBar />
         <div className="flex flex-col justify-center items-center">
-          <Filter/>
+          <Filter />
           <ProductList />
-          <TabBar/>
+          {/* <TabBar/> */}
         </div>
       </ProductsProvider>
     </>
   );
 };
 
-export default Wrapper(
-  App,
-  "container h-full bg-gray-300 min-w-full font-sans"
-);
+export default Wrapper(App, "container h-full bg min-w-full font-sans");

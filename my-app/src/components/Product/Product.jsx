@@ -2,7 +2,7 @@ import { BiTrash } from "react-icons/bi";
 
 const Product = ({ product, onDelete, onInCrement, onDeCrement, change }) => {
   return (
-    <div className="m-4 p-4 border-1 border-gray-400 rounded-lg w-58 sm:w-[60rem] flex flex-col  sm:flex-row justify-around items-center bg-[#fff]">
+    <div className="m-4 p-4 border border-gray-400 rounded-lg w-58 sm:w-[60rem] flex flex-col  sm:flex-row justify-around items-center bg-[#fff]">
       <p>product name : {product.title} course</p>
       <p>
         product price :
