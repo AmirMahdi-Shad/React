@@ -4,6 +4,7 @@ import { useProducts, useProductsActions } from "../Providers/ProductsProvider";
 const ProductList = (props) => {
   const products = useProducts();
   const dispatch = useProductsActions();
+
   const renderProduct = () => {
     if (products.length === 0) return <div>There is no s in cart</div>;
     return products.map((product) => (
@@ -16,10 +17,11 @@ const ProductList = (props) => {
       />
     ));
   };
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-wrap justify-center items-center w-full">
       {renderProduct()}
-      {!products.length && <div>go to Shopping</div>}
+      {!products.length && <div className="ml-10">go to Shopping</div>}
     </div>
   );
 };

@@ -6,7 +6,6 @@ const ProductsContext = createContext(0);
 const ProductsContextDisPatcher = createContext();
 
 const reducer = (state, action) => {
-  // todo
   switch (action.type) {
     case "increment": {
       const index = state.findIndex((p) => p.id === action.id);
@@ -47,8 +46,8 @@ const reducer = (state, action) => {
       if (value === "All") {
         return productsData;
       } else {
-        const updatedProducts = productsData.filter(
-          (p) => p.availableSizes.indexOf(value) >= 0
+        const updatedProducts = productsData.filter((p) =>
+          p.type.includes(action.selectedOption.value)
         );
         return updatedProducts;
       }
@@ -64,6 +63,17 @@ const reducer = (state, action) => {
         return _.orderBy(products, ["price"], ["asc"]);
       }
       break;
+    }
+    case "search": {
+      const value = action.e;
+
+      if (value === "") {
+        return state;
+      } else {
+        return state.filter((p) =>
+          p.title.toLowerCase().includes(value.toLowerCase())
+        );
+      }
     }
     default:
       return state;

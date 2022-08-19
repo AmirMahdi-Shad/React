@@ -1,40 +1,44 @@
 import { BiTrash } from "react-icons/bi";
 
 const Product = ({ product, onDelete, onInCrement, onDeCrement, change }) => {
+  const numberConcator = (Number) => {
+    Number += "";
+    Number = Number.replace(",", "");
+    let x = Number.split(".");
+    let y = x[0];
+    let z = x.length > 1 ? "." + x[1] : "";
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(y)) y = y.replace(rgx, `${"$1"}${","}${"$2"}`);
+    return y + z;
+  };
   return (
-    <div className="m-4 p-4 border border-gray-400 rounded-lg w-58 sm:w-[60rem] flex flex-col  sm:flex-row justify-around items-center bg-[#fff]">
-      <p>product name : {product.title} course</p>
-      <p>
-        product price :
-        <span className="font-bold">{product.price * product.quantity}</span>$
-      </p>
-      <input
-        className="text-purple-600 p-1  border border-purple-500 rounded-md"
-        type="text"
-        onChange={change}
-        value={product.title}
-      />
-      <button
-        onClick={onDeCrement}
-        className="bg-purple-200 border border-purple-700 rounded-md py-1 px-2 text-purple-600 w-8 h-8 flex justify-center items-center text-2xl"
-      >
-        {product.quantity > 1 ? "-" : <BiTrash />}
-      </button>
-      <span className="bg-purple-200 text-purple-700 w-6 h-6 rounded-full flex justify-center items-center">
-        {product.quantity}
-      </span>
-      <button
-        className="bg-purple-200 border border-purple-700 w-8 h-8  flex justify-center items-center  rounded-md  text-purple-600 text-2xl"
-        onClick={onInCrement}
-      >
-        +
-      </button>
-      <button
-        onClick={onDelete}
-        className="bg-[#f00e0e] rounded-sm sha px-2 text-white shadow-2xl shadow-[#f00e0e] h-7"
-      >
-        <BiTrash />
-      </button>
+    <div class="card w-72 md:w-96 m-10 bg-base-100 shadow-xl">
+      <figure>
+        <img src={`${process.env.PUBLIC_URL}${product.img}`} alt="Shoes" />
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">{product.title}</h2>
+        <p class="font-iranYekanR">
+          {numberConcator(product.price * product.quantity)} ریال
+        </p>
+        <div class="card-actions justify-center"></div>
+        <div class="btn-group mt-2 justify-center">
+          <button
+            class={
+              product.quantity > 1
+                ? "btn"
+                : "btn text-white bg-red-600 hover:bg-red-500"
+            }
+            onClick={onDeCrement}
+          >
+            {product.quantity > 1 ? "«" : <BiTrash />}
+          </button>
+          <button class="btn">{product.quantity}</button>
+          <button class="btn" onClick={onInCrement}>
+            »
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
